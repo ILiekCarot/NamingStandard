@@ -4,31 +4,6 @@ The **Instance** functions are used to interact with game objects and their prop
 
 ---
 
-## fireclickdetector
-
-```lua
-function fireclickdetector(object: ClickDetector, distance: number?, event: string?): ()
-```
-
-Dispatches a click or hover event to the given ClickDetector. When absent, `distance` defaults to zero, and `event` defaults to "MouseClick".
-
-Possible input events include 'MouseClick', 'RightMouseClick', 'MouseHoverEnter', and 'MouseHoverLeave'.
-
-### Parameters
-
- * `object` - The ClickDetector to dispatch to.
- * `distance` - Optional distance to the object.
- * `event` - Optional event to fire.
-
-### Example
-
-```lua
-local clickDetector = workspace.Door.Button.ClickDetector
-fireclickdetector(clickDetector, 10 + math.random(), "MouseClick")
-```
-
----
-
 ## getcallbackvalue
 
 ```lua
@@ -60,7 +35,8 @@ print(bindable.OnInvoke) --> Throws an error
 ## getconnections
 
 ```lua
-function getconnections(signal: RBXScriptSignal): {Connection}
+function getconnections(signal: ENCScriptSignal): {Connection}
+--ENCScriptSignal is an ENC alternative to RBXScriptSignal
 ```
 
 Creates a list of Connection objects for the functions connected to `signal`.
@@ -95,31 +71,6 @@ local connections = getconnections(game.DescendantAdded)
 for _, connection in ipairs(connections) do
 	connection:Disable()
 end
-```
-
----
-
-## getcustomasset
-
-```lua
-function getcustomasset(path: string, noCache: boolean): string
-```
-
-Returns a `rbxasset://` content id for the asset located at `path`, allowing you to use unmoderated assets. Internally, files are copied to the game's content directory.
-
-If `noCache` is false, the file will be cached, allowing subsequent calls to `getcustomasset` to return the same content id.
-
-### Parameters
-
- * `path` - The path to the asset.
- * `noCache` - Whether or not to cache the asset.
-
-### Example
-
-```lua
-local image = Instance.new("ImageLabel")
-image.Image = getcustomasset("image.png")
-print(image.Image) --> rbxasset://nTYyO6iSF3mND4FJ/image.png
 ```
 
 ---
@@ -162,7 +113,7 @@ GUI objects parented to this container will be protected from common detection m
 ### Example
 
 ```lua
-local gui = game:GetObjects("rbxassetid://1234")[1]
+local gui = Instance.new("ScreenGui")
 gui.Parent = gethui()
 ```
 
@@ -233,7 +184,7 @@ Returns whether the given property is scriptable (does not have the `notscriptab
 If `true`, the property is scriptable and can be indexed normally. If `nil`, the property does not exist.
 
 > ### 🪲 Known Issues
-> This appears to be backwards on Script-Ware. An example will not be provided until behavior is consistent.
+> Ion know what this shit does, so I wont give u an example.
 
 ### Parameters
 
@@ -263,27 +214,6 @@ local fire = Instance.new("Fire")
 print(sethiddenproperty(fire, "Size", 5)) --> false (not hidden)
 print(sethiddenproperty(fire, "size_xml", 15)) --> true (hidden)
 print(gethiddenproperty(fire, "size_xml")) --> 15, true (hidden)
-```
-
----
-
-## setrbxclipboard
-
-```lua
-function setrbxclipboard(data: string): boolean
-```
-
-Sets the Studio client's clipboard to the given `rbxm` or `rbxmx` model data. This allows data from the game to be copied into a Studio client.
-
-### Parameters
-
- * `data` - The model data to copy to the clipboard.
-
-### Example
-
-```lua
-local data = readfile("model.rbxm")
-setrbxclipboard(data) -- Can be pasted into Studio
 ```
 
 ---

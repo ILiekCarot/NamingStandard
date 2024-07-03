@@ -167,7 +167,7 @@ Generates a new closure using the bytecode of `script`.
 Compare the return value of a ModuleScript:
 
 ```lua
-local module = game:GetService("CoreGui").RobloxGui.Modules.Common.Constants
+local module = game:GetService("Players").LocalPlayer.PlayerScripts
 
 local constants = getrenv().require(module)
 local generatedConstants = getscriptclosure(module)()
@@ -259,52 +259,4 @@ local environment = getsenv(animate)
 for k, v in pairs(environment) do
 	print(k, v, "(" .. typeof(v) .. ")")
 end
-```
-
----
-
-## getthreadidentity
-
-```lua
-function getthreadidentity(): number
-```
-
-Returns the identity of the current thread.
-
-Learn more about thread identities [here](https://roblox.fandom.com/wiki/Security_context).
-
-### Aliases
-
- * `getidentity`
- * `getthreadcontext`
-
-### Example
-
-```lua
-local identity = getthreadidentity()
-print(identity) --> 7
-```
-
----
-
-## setthreadidentity
-
-```lua
-function setthreadidentity(identity: number): ()
-```
-
-Sets the current thread identity.
-
-Learn more about thread identities [here](https://roblox.fandom.com/wiki/Security_context).
-
-### Aliases
-
- * `setidentity`
- * `setthreadcontext`
-
-### Example
-
-```lua
-setthreadidentity(3)
-print(getthreadidentity()) --> 3
 ```

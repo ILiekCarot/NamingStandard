@@ -130,7 +130,7 @@ Queues the specified script to be executed after the player teleports to a diffe
 ### Example
 
 ```lua
-local source = game:GetObjects("rbxassetid://1234")[1].Source
+local source = "print('yippe')"
 queue_on_teleport(source)
 loadstring(source)()
 ```

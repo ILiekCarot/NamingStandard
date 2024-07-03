@@ -6,47 +6,39 @@ Behavior and examples documented on this page are based on Script-Ware.
 
 ---
 
-## rconsoleclear
+## consoleclear
 
 ```lua
-function rconsoleclear(): ()
+function consoleclear(): ()
 ```
 
 Clears the output of the console window.
-
-### Aliases
-
- * `consoleclear`
 
 ### Example
 
 ```lua
 -- Create the console window
-rconsolesettitle("New console")
-rconsoleprint("Hello, world!")
-rconsolecreate()
+consolesettitle("New console")
+consoleprint("Hello, world!")
+consolecreate()
 
 -- Clears the output "Hello, world!"
-rconsoleclear()
+consoleclear()
 ```
 
 ---
 
-## rconsolecreate
+## consolecreate
 
 ```lua
-function rconsolecreate(): ()
+function consolecreate(): ()
 ```
 
 Opens the console window. Text previously output to the console will not be cleared.
 
 > ### 🔎 Note
-> Some executors also allow functions like `rconsoleprint` to open the console.\
+> Some executors also allow functions like `consoleprint` to open the console.\
 > This is confusing behavior that should not be relied on.
-
-### Aliases
-
- * `consolecreate`
 
 ### Example
 
@@ -54,8 +46,8 @@ Create a program that generates a mountainous landscape:
 
 ```lua
 -- Create the console window
-rconsolesettitle("Beautiful Mountains")
-rconsolecreate()
+consolesettitle("Beautiful Mountains")
+consolecreate()
 
 local function generate()
 	-- Generate a random decimal number for noise
@@ -66,20 +58,20 @@ local function generate()
 		local noise = math.noise(i / 8, seed) + 0.5
 		local height = math.floor(noise * 50)
 		local line = string.rep("*", height)
-		rconsoleprint(line .. "\n")
+		consoleprint(line .. "\n")
 	end
 
 	-- Prompts the user to generate a new set of mountains
 	-- or exit the console window
-	rconsoleprint("\nEnter 'Y' to generate a new landscape, or nothing to exit\n")
+	consoleprint("\nEnter 'Y' to generate a new landscape, or nothing to exit\n")
 
-	local input = rconsoleinput()
+	local input = consoleinput()
 
 	if string.lower(input) == "y" then
-		rconsoleclear()
+		consoleclear()
 		generate()
 	else
-		rconsoledestroy()
+		consoledestroy()
 	end
 end
 
@@ -88,72 +80,64 @@ generate()
 
 ---
 
-## rconsoledestroy
+## consoledestroy
 
 ```lua
-function rconsoledestroy(): ()
+function consoledestroy(): ()
 ```
 
 Closes the console window and clears its output. The title will not be changed.
-
-### Aliases
-
- * `consoledestroy`
 
 ### Example
 
 ```lua
 -- Create a console window titled "New console" and with the output "Hello, world!"
-rconsolesettitle("New console")
-rconsoleprint("Hello, world!")
-rconsolecreate()
+consolesettitle("New console")
+consoleprint("Hello, world!")
+consolecreate()
 
 -- Close the console window, clearing its output
-rconsoledestroy()
+consoledestroy()
 
 -- Reopen the console window titled "New console" with no output
-rconsolecreate()
+consolecreate()
 ```
 
 ---
 
-## rconsoleinput
+## consoleinput
 
 `⏰ Yields`
 
 ```lua
-function rconsoleinput(): string
+function consoleinput(): string
 ```
 
 Waits for the user to input text into the console window. Returns the result.
-
-### Aliases
-
- * `consoleinput`
 
 ### Example
 
 ```lua
 -- Create the console window
-rconsolesettitle("Your Info")
-rconsoleprint("What is your name?\nMy name is: ")
-rconsolecreate()
+consolesettitle("Your Info")
+consoleprint("What is your name?\nMy name is: ")
+consolecreate()
 
 -- Retrieve the user's input
-local name = rconsoleinput()
-rconsoleprint("Hello, " .. name .. "!")
+local name = consoleinput()
+consoleprint("Hello, " .. name .. "!")
 
 -- Cleanup
 task.wait(1)
-rconsoledestroy()
+consoledestroy()
 ```
 
 ---
 
-## rconsoleprint
+## consoleprint
 
 ```lua
-function rconsoleprint(text: string): ()
+function consoleprint(text: string): ()
 ```
 
 Prints `text` to the console window. Does not clear existing text or create a new line.
@@ -162,27 +146,23 @@ Prints `text` to the console window. Does not clear existing text or create a ne
 
 * `text` - The text to append to the output.
 
-### Aliases
-
- * `consoleprint`
-
 ### Example
 
 ```lua
 -- Create a console window titled "New console" with the
 -- output "Hello, world!! How are you today?"
-rconsolesettitle("New console")
-rconsoleprint("Hello, world!")
-rconsoleprint("! How are you today?")
-rconsolecreate()
+consolesettitle("New console")
+consoleprint("Hello, world!")
+consoleprint("! How are you today?")
+consolecreate()
 ```
 
 ---
 
-## rconsolesettitle
+## consolesettitle
 
 ```lua
-function rconsolesettitle(title: string): ()
+function consolesettitle(title: string): ()
 ```
 
 Sets the title of the console window to `title`.
@@ -193,13 +173,12 @@ Sets the title of the console window to `title`.
 
 ### Aliases
 
- * `rconsolename`
- * `consolesettitle`
+ * `consolename`
 
 ### Example
 
 ```lua
 -- Create a console window titled "My console"
-rconsolesettitle("My console")
-rconsolecreate()
+consolesettitle("My console")
+consolecreate()
 ```

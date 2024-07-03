@@ -4,10 +4,10 @@ The **input** functions allow you to dispatch inputs on behalf of the user.
 
 ---
 
-## isrbxactive
+## isgameactive
 
 ```lua
-function isrbxactive(): boolean
+function isgameactive(): boolean
 ```
 
 Returns whether the game's window is in focus. Must be true for other input functions to work.
@@ -19,7 +19,7 @@ Returns whether the game's window is in focus. Must be true for other input func
 ### Example
 
 ```lua
-if isrbxactive() then
+if isgameactive() then
 	mouse1click()
 end
 ```
@@ -105,7 +105,7 @@ Move the cursor in a circle around the screen:
 
 ```lua
 -- Wait for the game window to be selected
-while not isrbxactive() do
+while not isgameactive() do
 	task.wait()
 end
 
@@ -140,7 +140,7 @@ Moves the cursor in a small circle:
 
 ```lua
 -- Wait for the game window to be selected
-while not isrbxactive() do
+while not isgameactive() do
 	task.wait()
 end
 
