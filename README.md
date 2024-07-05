@@ -1,9 +1,7 @@
 # External Naming Convention
 aka ENC, is an organization between executor developers to provide a unified scripting API for our scripters.
----
-~~**Please go to our official website for better styled information: https://scriptunc.org/**~~
-
-This website has since been removed, the ENC site will be coming out soon.
+---   
+**Please go to our official website for better styled information: https://scriptenc.org/** (coming soon)
 
 ## Why?
 Over the years scripting has gotten more and more complex to support multiple executors. And with many people moving on from Roblox, there is a new market for Lua External Executors for other games. (like [Minecraft](https://elysium.wtf/))
@@ -22,8 +20,25 @@ The ENC provides standards for naming conventions as well as API functionality. 
 ## Supporting ENC
 As a product owner, your support of ENC by following the API will result in a far smoother experience for scripters, as they are able to work on scripts that they can confidently say will work on **most** products. Once you have implemented ENC's API, you can display so by adding the badge to your website, thread or application.
 
-You can find the badge here: ~~https://scriptunc.org/badge~~
-(This badge has since been removed from the UNC website)
+Here are a few examples for badges at 100%. You can use the HTML one for websites, and the markdown one for repositories.
+```html
+<i>Dash badge</i>
+
+<a href="https://roblox.scriptenc.org"><img src="https://img.shields.io/badge/ENC-100%25-blueviolet" alt="ENC - 100%"></a>
+
+<i>Query parameter badge</i>
+
+<a href="https://roblox.scriptenc.org"><img src="https://img.shields.io/static/v1?label=ENC&message=100%25&color=blueviolet" alt="ENC - 100%"></a>```
+```   
+```md
+_Dash badge_
+
+[![ENC - 100%](https://img.shields.io/badge/ENC-100%-blueviolet)](https://roblox.scriptenc.org)
+
+_Query parameter badge_
+
+[![ENC - 100%](https://img.shields.io/static/v1?label=ENC&message=100%&color=blueviolet)](https://roblox.scriptenc.org)
+```
 
 This will notify people of your alliance in providing scripters with an easier method of engineering scripts that your consumers can enjoy.
 
